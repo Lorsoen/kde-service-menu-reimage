@@ -33,6 +33,7 @@ load_language_en_US () {
 	# msg_common_montage_not_found_text="Software ImageMagick not found! Please, install it."
 	msg_common_jhead_not_found_text="Software \"Jhead\" was not found! Please install it."
 	msg_common_webp_not_found_text="Software \"WebP\" was not found! Please install it."
+	msg_common_rembg_not_found_text="Software rembg not found! Please install it"
 	msg_common_action_not_found_text="The requested action is not implemented."
 	msg_common_overwrite_text="In case the images to be saved have the same name as those to be processed,${new_line}do you want to overwrite them?"
 	msg_common_abort="Operation interrupted by the user."
@@ -80,6 +81,10 @@ load_language_en_US () {
 
 	msg_progressive_title="Make file progressive"
 	msg_progressive_finish_title="Make \"${name}\" progressive"
+
+	msg_rembg_title="Remove background"
+	msg_rembg_model_imput_text="Please select a model :${new_line}(u2net by default)"
+	msg_rembg_finish_title="Removing background from \"${name}\""
 
 	msg_resize_title="Resizing image \"${value}\""
 	msg_resize_scale_input_text="Type the scale factor in percentage or the maximum size you want for one or each direction.${new_line}You can choose a percentage or a pixel size.${new_line}${new_line}Example values: 30%, 1024x768, 1024x, x768"
@@ -155,6 +160,7 @@ load_language_it () {
 	# msg_common_montage_not_found_text="Il software ImageMagick non è stato trovato! Per favore, installalo."
 	msg_common_jhead_not_found_text="Il software \"Jhead\" non è stato trovato! Per favore installalo."
 	msg_common_webp_not_found_text="Il software \"WebP\" non è stato trovato! Per favore installalo."
+	msg_common_rembg_not_found_text="Software rembg not found! Please install it"
 	msg_common_action_not_found_text="L'azione richiesta non è implementata."
 	msg_common_overwrite_text="Nel caso che le immagini da salvare abbiano lo stesso nome di quelle da elaborare,${new_line}vuoi sovrascriverle?"
 	msg_common_abort="Operazione interrotta dall'utente."
@@ -202,6 +208,10 @@ load_language_it () {
 
 	msg_progressive_title="Rendi il file progressivo"
 	msg_progressive_finish_title="Rendi \"${name}\" progressivo"
+
+	msg_rembg_title="Remove background"
+	msg_rembg_model_imput_text="Please select a model :${new_line}(u2net by default)"
+	msg_rembg_finish_title="Removing background from \"${name}\""
 
 	msg_resize_title="Ridimensionamento immagine \"${value}\""
 	msg_resize_scale_input_text="Digita il fattore di scala in percentuale o la dimensione massima desiderata per una o ciascuna direzione.${new_line}Puoi scegliere una percentuale o una dimensione in pixel.${new_line}${new_line}Valori di esempio: 30%, 1024x768, 1024x, x768"
@@ -777,6 +787,16 @@ run_overturn () {
 	return $?
 }
 
+run_rembg () {
+	if [ "${model}" = "" ]; then
+		msg=$("${rembg_bin}" i "${input}" "${dir}/${base}_no_background.png" 2>&1)
+	else
+		msg=$("${rembg_bin}" i -m "${model}" "${input}" "${dir}/${base}_no_background.png" 2>&1)
+	fi
+
+	return $?
+}
+
 run_rotate () {
 	if [ "${overwrite}" = true ]; then
 		if [ "${angle}" = "auto" ]; then
@@ -1174,6 +1194,15 @@ set_overturn () {
 	manage_input_separately "${@}"
 }
 
+set_rembg () {
+	model_list=$(ls $HOME/.u2net/ | sed -e 's/\..*$//')
+
+	model=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --combobox "${msg_rembg_model_imput_text}" ${model_list} ) || \
+		{ "${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2; }
+
+	manage_input_separately "${@}"
+}
+
 set_rotate () {
 	value="${1}"
 	shift
@@ -1323,6 +1352,10 @@ jhead_bin=$(which jhead)
 webp_bin=$(which webpinfo)
 [ -z "${webp_bin}" ] && \
 	"${kdialog_bin}" --icon configure --title "${msg_common_software_not_found_title}" --error "${msg_common_webp_not_found_text}" && exit 2
+
+rembg_bin=$(which rembg)
+[ -z "${rembg_bin}" ] && \
+	"${kdialog_bin}" -icon configure --title "${msg_common_software_not_found_title}" --error "${msg_common_rembg_not_found_text}" && exit 2
 
 action="${1}"
 shift
