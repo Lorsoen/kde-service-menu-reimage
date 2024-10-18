@@ -18,7 +18,7 @@
 #
 
 [Desktop Entry]
-Actions=agif;append_right;_SEPARATOR_;gray;sepia;transparent2color;_SEPARATOR_;border;border_transparent;shadow;
+Actions=agif;append_right;remove_background;_SEPARATOR_;gray;sepia;transparent2color;_SEPARATOR_;border;border_transparent;shadow;
 MimeType=image/*
 Name=ReImage tools service menu
 ServiceTypes=KonqPopupMenu/Plugin,image/*
@@ -119,6 +119,12 @@ Name[sv]=Lägg till höger
 Name[tr]=Sağa ekle
 Name[uk]=Додати праворуч
 Name[zh]=向右追加
+
+[Desktop Action remove_background]
+Exec=reimage-kdialog rembg %F
+Icon=quickwizard
+Name=Remove background
+Name[it]=Remove background
 
 ################################################################################
 
