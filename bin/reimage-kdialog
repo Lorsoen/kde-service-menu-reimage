@@ -287,6 +287,7 @@ load_language_fr_FR () {
 	# msg_common_montage_not_found_text="Software ImageMagick not found! Please, install it."
 	msg_common_jhead_not_found_text="jhead est introuvable. Veuillez l'installer depuis votre gestionnaire de paquets ou demander à l'administrateur."
     msg_common_webp_not_found_text="webp est introuvable. Veuillez l'installer depuis pipx ou demander à l'administrateur."
+	msg_common_rembg_not_found_text="rembg est introuvable. Veuillez l'installer depuis pipx ou demander à l'administrateur."
 	msg_common_action_not_found_text="L'action demandée n'existe pas."
 	msg_common_overwrite_text="Souhaitez-vous écraser les fichiers originaux ?"
 	msg_common_abort="Action interrompue par l'utilisateur."
@@ -331,6 +332,10 @@ load_language_fr_FR () {
 
 	msg_overturn_title="Retourner \"${value}\""
 	msg_overturn_finish_title="Retournement de \"${name}\""
+
+	msg_rembg_title="Isoler le sujet"
+	msg_rembg_model_imput_text="Veuillez sélectionner un modèle :${new_line}(u2net par défaut)"
+	msg_rembg_finish_title="Isolement de \"${name}\""
 
 	msg_progressive_title="Make file progressive"
 	msg_progressive_finish_title="Make \"${name}\" progressive"
@@ -409,6 +414,7 @@ load_language_pt_BR () {
 	# msg_common_montage_not_found_text="Software ImageMagick not found! Please, install it."
 	msg_common_jhead_not_found_text="O software jhead não foi encontrado! Por favor, instale-o."
 	msg_common_webp_not_found_text="Software webp not found! Please, install it."
+	msg_common_rembg_not_found_text="O software rembg não foi encontrado! Por favor, instale-o."
 	msg_common_action_not_found_text="A ação solicitada não está implementada."
 	msg_common_overwrite_text="Deseja sobrescrever o(s) arquivo(s) selecionado(s)?${new_line}${new_line}Selecione não para que novos arquivos sejam criados."
 	msg_common_abort="Operação interrompida pelo usuário."
@@ -453,6 +459,10 @@ load_language_pt_BR () {
 
 	msg_overturn_title="Ribalta \"${value}\""
 	msg_overturn_finish_title="Arquivo Ribaltamento \"${name}\""
+
+	msg_rembg_title="Remove background"
+	msg_rembg_model_imput_text="Please select a model :${new_line}(u2net by default)"
+	msg_rembg_finish_title="Removing background from \"${name}\""
 
 	msg_progressive_title="Make file progressive"
 	msg_progressive_finish_title="Make \"${name}\" progressive"
