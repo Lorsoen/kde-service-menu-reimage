@@ -547,7 +547,7 @@ load_language () {
 	load_language_fr_FR && [ "${lang}" != "en_US" ] && load_language_${lang}
 }
 
-lang=${LANGUAGE%%:*}
+lang=${LANG//.?*/}
 type load_language_${lang} &> /dev/null || lang='en_US'
 load_language
 
