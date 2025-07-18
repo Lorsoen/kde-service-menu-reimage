@@ -1,8 +1,8 @@
 #! /bin/bash
 #
-# 	Part of kde-service-menu-reimage (version 2.6.0)
+# 	Part of kde-service-menu-reimage Version 2.6.0
 # 	Copyright (C) 2018-2019 Giuseppe Benigno <giuseppe.benigno(at)gmail.com>
-# 	Copyright (C) 2024 Irfan Hakim <irfanhakim.as(at)yahoo.com>
+# 	Copyright (C) 2024 Robert-André Mauchin <zebob.m(at)gmail.com>
 #
 # 	This program is free software: you can redistribute it and/or modify
 # 	it under the terms of the GNU General Public License as published by
@@ -17,6 +17,8 @@
 # 	You should have received a copy of the GNU General Public License
 # 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
 
 #### languages strings messages #################
 # Syntax for strings name is: msg_[$format]_$window_[$section]
@@ -27,12 +29,9 @@ new_line="
 
 load_language_en_US () {
 	msg_common_software_not_found_title="Software not found"
-	msg_common_magick_not_found_text="Software \"ImageMagick\" was not found! Please install it."
-	# msg_common_mogrify_not_found_text="Software ImageMagick not found! Please, install it."
-	# msg_common_convert_not_found_text="Software ImageMagick not found! Please, install it."
-	# msg_common_montage_not_found_text="Software ImageMagick not found! Please, install it."
-	msg_common_jhead_not_found_text="Software \"Jhead\" was not found! Please install it."
-	msg_common_webp_not_found_text="Software \"WebP\" was not found! Please install it."
+	msg_common_magick_not_found_text="Software ImageMagick not found! Please, install it."
+	msg_common_jhead_not_found_text="Software jhead not found! Please, install it."
+	msg_common_webp_not_found_text="Software webp not found! Please, install it."
 	msg_common_action_not_found_text="The requested action is not implemented."
 	msg_common_overwrite_text="In case the images to be saved have the same name as those to be processed,${new_line}do you want to overwrite them?"
 	msg_common_abort="Operation interrupted by the user."
@@ -51,6 +50,18 @@ load_language_en_US () {
 	msg_agif_cicles_number_input_text="Type the number of repetitions of the animation:"
 	msg_agif_finish_title="Convert files into animated GIF"
 
+	msg_apng_title="Convert files into animated PNG"
+	msg_apng_delay_input_text="Enter the duration of the single frame, in hundredths of a second:${new_line}(100 = 1 second)"
+	msg_apng_loop_input_text="Do you want loop playback?"
+	msg_apng_cicles_number_input_text="Type the number of repetitions of the animation:"
+	msg_apng_finish_title="Convert files into animated PNG"
+
+	msg_webp_title="Convert files into animated WEBP"
+	msg_webp_delay_input_text="Enter the duration of the single frame, in hundredths of a second:${new_line}(100 = 1 second)"
+	msg_webp_loop_input_text="Do you want loop playback?"
+	msg_webp_cicles_number_input_text="Type the number of repetitions of the animation:"
+	msg_webp_finish_title="Convert files into animated WEBP"
+
 	msg_border_title="Add border"
 	msg_border_size_input_text="Type the size of border in percentage or in pixel.${new_line}${new_line}Valid values can be: 10% or 50"
 	msg_border_finish_title="Add border to \"${name}\""
@@ -63,8 +74,8 @@ load_language_en_US () {
 	msg_compress_finish_title="Compression of \"${name}\""
 
 	msg_convert_title="Convert file to \"${value}\" format"
-	msg_convert_format_input_text="Type the format you want.${new_line}A complete list can be obtained from the shell with: \`${magick_bin} -list format\`${new_line}or by consulting the ImageMagick manual."
-	msg_convert_finish_title="Conversion of \"${name}\""
+	msg_convert_format_input_text="Type the format you want.${new_line}A complete list can be obtained from the shell with: mogrify -list format${new_line}or by consulting the ImageMagick manual."
+	msg_convert_finish_title="Convertion of \"${name}\""
 
 	msg_favicons_title="Favicons generation"
 	msg_favicons_finish_title="Generating favicons by \"${name}\""
@@ -78,11 +89,8 @@ load_language_en_US () {
 	msg_overturn_title="Overturn file to \"${value}\""
 	msg_overturn_finish_title="Overturn \"${name}\""
 
-	msg_progressive_title="Make file progressive"
-	msg_progressive_finish_title="Make \"${name}\" progressive"
-
 	msg_resize_title="Resizing image \"${value}\""
-	msg_resize_scale_input_text="Type the scale factor in percentage or the maximum size you want for one or each direction.${new_line}You can choose a percentage or a pixel size.${new_line}${new_line}Example values: 30%, 1024x768, 1024x, x768"
+	msg_resize_scale_input_text="Type the scale factor in percentage or the maximum size you want for each direction.${new_line}You can choose a percentage or a pixel size.${new_line}${new_line}Valid values can be: 30% or 1024x768"
 	msg_resize_finish_title="Resizing of \"${name}\""
 
 	msg_rotate_title="Rotate file with angle of \"${value}\""
@@ -149,12 +157,11 @@ load_language_en_US () {
 
 load_language_it () {
 	msg_common_software_not_found_title="Software non trovato"
-	msg_common_magick_not_found_text="Il software \"ImageMagick\" non è stato trovato! Per favore installalo."
-	# msg_common_mogrify_not_found_text="Il software ImageMagick non è stato trovato! Per favore, installalo."
-	# msg_common_convert_not_found_text="Il software ImageMagick non è stato trovato! Per favore, installalo."
-	# msg_common_montage_not_found_text="Il software ImageMagick non è stato trovato! Per favore, installalo."
-	msg_common_jhead_not_found_text="Il software \"Jhead\" non è stato trovato! Per favore installalo."
-	msg_common_webp_not_found_text="Il software \"WebP\" non è stato trovato! Per favore installalo."
+	msg_common_mogrify_not_found_text="Il software ImageMagick non è stato trovato! Per favore, installalo."
+	msg_common_convert_not_found_text="Il software ImageMagick non è stato trovato! Per favore, installalo."
+	msg_common_montage_not_found_text="Il software ImageMagick non è stato trovato! Per favore, installalo."
+	msg_common_jhead_not_found_text="Il software jhead non è stato trovato! Per favore, installalo."
+	msg_common_webp_not_found_text="Il software webp non è stato trovato! Per favore, installalo."
 	msg_common_action_not_found_text="L'azione richiesta non è implementata."
 	msg_common_overwrite_text="Nel caso che le immagini da salvare abbiano lo stesso nome di quelle da elaborare,${new_line}vuoi sovrascriverle?"
 	msg_common_abort="Operazione interrotta dall'utente."
@@ -185,7 +192,7 @@ load_language_it () {
 	msg_compress_finish_title="Compressione di \"${name}\""
 
 	msg_convert_title="Conversione immagine nel formato \"${value}\""
-	msg_convert_format_input_text="Digitare il formato che si desidera.${new_line}Una lista completa può essere ottenuta da shell con: \`${magick_bin} -list format\`${new_line}oppure consultando il manuale di ImageMagick."
+	msg_convert_format_input_text="Digitare il formato che si desidera.${new_line}Una lista completa può essere ottenuta da shell con: mogrify -list format${new_line}oppure consultando il manuale di ImageMagick."
 	msg_convert_finish_title="Conversione di \"${name}\""
 
 	msg_favicons_title="Generazione favicons"
@@ -200,11 +207,8 @@ load_language_it () {
 	msg_overturn_title="Ribalta \"${value}\""
 	msg_overturn_finish_title="Ribaltamento file \"${name}\""
 
-	msg_progressive_title="Rendi il file progressivo"
-	msg_progressive_finish_title="Rendi \"${name}\" progressivo"
-
 	msg_resize_title="Ridimensionamento immagine \"${value}\""
-	msg_resize_scale_input_text="Digita il fattore di scala in percentuale o la dimensione massima desiderata per una o ciascuna direzione.${new_line}Puoi scegliere una percentuale o una dimensione in pixel.${new_line}${new_line}Valori di esempio: 30%, 1024x768, 1024x, x768"
+	msg_resize_scale_input_text="Digitare il fattore di scala in percentuale o la dimensione massima che si desidera per ogni direzione.${new_line}È possibile scegliere una percentuale o una dimensione in pixel.${new_line}${new_line}Valori validi possono essere: 30% oppure 300x300"
 	msg_resize_finish_title="Ridimensionamento di \"${name}\""
 
 	msg_rotate_title="Rotazione file di \"${value}\" gradi"
@@ -269,11 +273,278 @@ load_language_it () {
 	msg_purejpg_finish_title="Elimina medatati non necessari da \"${name}\""
 }
 
+load_language_fr_FR () {
+	msg_common_software_not_found_title="Le logiciel est introuvable."
+	msg_common_magick_not_found_text="ImageMagick est introuvable. Veuillez l'installer depuis votre gestionnaire de paquets ou demander à l'administrateur."
+	msg_common_jhead_not_found_text="jhead est introuvable. Veuillez l'installer depuis votre gestionnaire de paquets ou demander à l'administrateur."
+    msg_common_webp_not_found_text="webp est introuvable. Veuillez l'installer depuis pipx ou demander à l'administrateur."
+	msg_common_rembg_not_found_text="rembg est introuvable. Veuillez l'installer depuis pipx ou demander à l'administrateur."
+	msg_common_action_not_found_text="L'action demandée n'existe pas."
+	msg_common_overwrite_text="Souhaitez-vous écraser les fichiers originaux ?"
+	msg_common_abort="Action interrompue par l'utilisateur."
+	msg_common_file_not_found="Le fichier \"${name}\" est introuvable !"
+	msg_common_name_error="Le nom de fichier \"${name}\" ne correspond pas au format de date attendu.${new_line}${new_line}Il doit être formaté comme ceci : AAAA-MM-JJ_HHMMSS.jpg"
+	msg_common_start="Démarrage..."
+	msg_common_progress_text="Traitement : $processed sur $quantity fait ($(basename "${input}"))"
+	msg_common_finish_ok="Terminé."
+	msg_common_finish_error="Une erreur est survenue."
+	msg_common_transparent_unsupported_text="Le format JPEG ne prend pas en charge cet effet.${new_line}Veuillez convertir le fichier en PNG."
+# 	msg_common_details="Details:"
+
+	msg_agif_title="Convertir en GIF animé"
+	msg_agif_delay_input_text="Veuillez entrer la durée d'une image :${new_line}(100 = 1 seconde)"${new_line}
+	msg_agif_loop_input_text="Souaitez-vous créer une boucle infinie ?"
+	msg_agif_cicles_number_input_text="Veuillez entrer le nombre de boucles de l'animation :${new_line}"
+	msg_agif_finish_title="Convertir en GIF animé"
+
+    msg_apng_title="Convertir en PNG animé"
+	msg_apng_delay_input_text="Veuillez entrer la durée d'une image :${new_line}(100 = 1 seconde)"${new_line}
+	msg_apng_loop_input_text="Souhaitez-vous créer une boucle infinie ?"
+	msg_apng_cicles_number_input_text="Veuillez entrer le nombre de boucles de l'animation :${new_line}"
+	msg_apng_finish_title="Convertir en PNG animé"
+
+    msg_webp_title="Convertir en WEBP animé"
+	msg_webp_delay_input_text="Veuillez entrer la durée d'une image :${new_line}(100 = 1 seconde)"${new_line}
+	msg_webp_loop_input_text="Souhaitez-vous créer une boucle infinie ?"
+	msg_webp_cicles_number_input_text="Veuillez entrer le nombre de boucles de l'animation :${new_line}"
+	msg_webp_finish_title="Convertir en WEBP animé"
+
+	msg_border_title="Ajouter une bordure"
+	msg_border_size_input_text="Veuillez entrer la taille de la bordure :${new_line}(En pourcentage ou en pixels) :${new_line}${new_line}Exemples de valeurs : 10% ou 50"${new_line}
+	msg_border_finish_title="Ajouter une bordure \"${name}\""
+
+	msg_colorspace_title="Changer l'espace colorimétrique \"${value}\""
+	msg_colorspace_finish_title="Changer l'espace colorimétrique de \"${name}\""
+
+	msg_compress_title="Compresser \"${value}\""
+	msg_compress_quality_input_text="Veuillez entrer une valeur de qualité :${new_line}(en pourcentage)${new_line}"
+	msg_compress_finish_title="Compression de \"${name}\""
+
+	msg_convert_title="Convertir au format... \"${value}\""
+	msg_convert_format_input_text="Veuillez entrer le format désiré :${new_line}${new_line}Vous pouvez vérifier les formats valides dans un terminal${new_line}avec la commande ci-dessous ou dans la documentation d'ImageMagick.${new_line}${new_line}mogrify -list format"${new_line}
+	msg_convert_finish_title="Conversion de \"${name}\""
+
+	msg_favicons_title="Générer des Favicons"
+	msg_favicons_finish_title="Génération de Favicons par \"${name}\""
+
+	msg_montage_title="Greffer"
+	msg_montage_finish_title="Greffage des images à \"${name}\""
+
+	msg_optimize_title="Optimisation Web"
+	msg_optimize_finish_title="Optimisation de \"${name}\""
+
+	msg_overturn_title="Retourner \"${value}\""
+	msg_overturn_finish_title="Retournement de \"${name}\""
+
+	msg_rembg_title="Isoler le sujet"
+	msg_rembg_model_imput_text="Veuillez sélectionner un modèle :${new_line}(u2net par défaut)"
+	msg_rembg_finish_title="Isolement de \"${name}\""
+
+	msg_resize_title="Redimensionner \"${value}\""
+	msg_resize_scale_input_text="Veuillez entrer une valeur de redimensionnement :${new_line}(en pourcentage ou en résolution)${new_line}${new_line}Exemple de valeurs : 30% ou 1024x768"${new_line}
+	msg_resize_finish_title="Redimensionnement de \"${name}\""
+
+	msg_rotate_title="Rotation \"${value}\""
+	msg_rotate_angle_input_text="Veuillez entrer l'angle de rotation :"
+	msg_rotate_finish_title="Rotation de \"${name}\""
+
+	msg_sepia_title="Filtre sépia"
+	msg_sepia_finish_title="Application d'un filtre sépia à \"${name}\""
+
+	msg_shadow_title="Ombre portée"
+	msg_shadow_finish_title="Application d'une ombre portée à \"${name}\""
+
+	msg_timestamp_title="Ajouter hodoratage"
+	msg_timestamp_finish_title="Ajout d'un hodoratage à \"${name}\""
+
+	msg_transparent2color_title="Insertion d'une couleur d'arrière-plan"
+	msg_transparent2color_finish_title="Insertion d'une couleur d'arrière-plan à \"${name}\""
+
+	msg_rfe_title="Renommer avec Exif"
+	msg_rfe_no_metadata="Aucune métadonée n'a été trouvé."
+	msg_rfe_finish_title="Renommage de \"${name}\""
+
+	msg_rff_title="Renommer selon la date"
+	msg_rff_finish_title="Renommage de \"${name}\""
+
+	msg_sffe_title="Changer la date avec Exif"
+	msg_sffe_no_metadata="Aucune métadonée n'a été trouvé."
+	msg_sffe_finish_title="Changement de la date de \"${name}\""
+
+	msg_sffn_title="Changer la date selon le nom"
+	msg_sffn_finish_title="Changement de la date de \"${name}\""
+
+	msg_seff_title="Changer la date Exif selon la date"
+	msg_seff_finish_title="Changement de la date de \"${name}\""
+
+	msg_sefn_title="Changer la date Exif selon le nom"
+	msg_sefn_finish_title="Changement de la date de \"${name}\""
+
+	msg_ac_title="Ajouter un commentaire"
+	msg_ac_comment_input_text="Veuillez écrire le commentaire à ajouter :"
+	msg_ac_finish_title="Ajout d'un comentaire sur \"${name}\""
+
+	msg_ve_title="Analyser les métadonnées"
+	msg_ve_finish_title="Analyser des métadonnées de \"${name}\""
+
+	msg_ee_title="Extracter les métadonnées"
+	msg_ee_finish_title="Extraction des métadonnées de\"${name}\""
+
+	msg_dc_title="Supprimer les commentaires"
+	msg_dc_finish_title="Supression des commentaires sur \"${name}\""
+
+	msg_de_title="Supprimer les infos Exif"
+	msg_de_finish_title="Suppresion des infos Exif de \"${name}\""
+
+	msg_di_title="Supprimer les infos IPTC"
+	msg_di_finish_title="Suppresion des infos IPTC de \"${name}\""
+
+	msg_dx_title="Supprimer les infos XMP"
+	msg_dx_finish_title="Suppresion des infos XMP de \"${name}\""
+
+	msg_purejpg_title="Supprimer toutes les métadonnées"
+	msg_purejpg_finish_title="Métadonnées retirées de \"${name}\""
+}
+
+load_language_pt_BR () {
+	msg_common_software_not_found_title="Software não encontrado"
+	msg_common_magick_not_found_text="Software ImageMagick not found! Please, install it."
+	msg_common_jhead_not_found_text="O software jhead não foi encontrado! Por favor, instale-o."
+	msg_common_webp_not_found_text="Software webp not found! Please, install it."
+    msg_common_rembg_not_found_text="O software rembg não foi encontrado! Por favor, instale-o."
+	msg_common_action_not_found_text="A ação solicitada não está implementada."
+	msg_common_overwrite_text="Deseja sobrescrever o(s) arquivo(s) selecionado(s)?${new_line}${new_line}Selecione não para que novos arquivos sejam criados."
+	msg_common_abort="Operação interrompida pelo usuário."
+	msg_common_file_not_found="O arquivo \"${name}\" não foi encontrado!"
+	msg_common_name_error="O nome do arquivo \"${name}\" não corresponde a um formato reconhecido para uma data.${new_line}${new_line}O nome deve ser do tipo: YYYY-MM-DD_HHMMSS.jpg"
+	msg_common_start="Inicializando ..."
+	msg_common_progress_text="Processamento dos arquivos $processed de $quantity ($(basename "${input}"))"
+	msg_common_finish_ok="Concluído"
+	msg_common_finish_error="Ocorreu um erro durante a operação atual."
+	msg_common_transparent_unsupported_text="O formato JPEG não suporta transparência.${new_line}Converta para PNG."
+# 	msg_common_details="Dettagli:"
+
+	msg_agif_title="Converta arquivos em um GIF animado"
+	msg_agif_delay_input_text="Digite a duração do quadro único, em centésimos de segundo:${new_line}(100 = 1 segundo )"
+	msg_agif_loop_input_text="Você quer que o arquivo seja colocado em loop?"
+	msg_agif_cicles_number_input_text="Digite o número de repetições da animação:"
+	msg_agif_finish_title="Convertendo arquivos em um GIF animado"
+
+    msg_apng_title="Convert files into animated PNG"
+	msg_apng_delay_input_text="Enter the duration of the single frame, in hundredths of a second:${new_line}(100 = 1 second)"
+	msg_apng_loop_input_text="Do you want loop playback?"
+	msg_apng_cicles_number_input_text="Type the number of repetitions of the animation:"
+	msg_apng_finish_title="Convert files into animated PNG"
+
+	msg_webp_title="Convert files into animated WEBP"
+	msg_webp_delay_input_text="Enter the duration of the single frame, in hundredths of a second:${new_line}(100 = 1 second)"
+	msg_webp_loop_input_text="Do you want loop playback?"
+	msg_webp_cicles_number_input_text="Type the number of repetitions of the animation:"
+	msg_webp_finish_title="Convert files into animated WEBP"
+
+	msg_border_title="Adicionar borda"
+	msg_border_size_input_text="Digite o tamanho da borda desejada, em porcentagem ou em pixels.${new_line}${new_line}Os valores válidos podem ser: 10% ou 50"
+	msg_border_finish_title="Adicionando a borda a \"${name}\""
+
+	msg_colorspace_title="Mudança de espaço de cor a \"${value}\""
+	msg_colorspace_finish_title="Alterar o espaço de cor de \"${name}\""
+
+	msg_compress_title="Compressão de imagem com qualidade \"${value}\""
+	msg_compress_quality_input_text="Digite a qualidade desejada."
+	msg_compress_finish_title="Compressão de \"${name}\""
+
+	msg_convert_title="Conversão de imagem em formato \"${value}\""
+	msg_convert_format_input_text="Digite o formato desejado.${new_line}Uma lista completa pode ser obtida de um shell com o formato: -mogrify -list${new_line}ou consultando o manual do ImageMagick."
+	msg_convert_finish_title="Conversão de \"${name}\""
+
+	msg_favicons_title="Geração de favicons"
+	msg_favicons_finish_title="Geração favicons da \"${name}\""
+
+	msg_montage_title="Imagem lado a lado"
+	msg_montage_finish_title="Imagem lado a lado a \"${name}\""
+
+	msg_optimize_title="Otimização Web"
+	msg_optimize_finish_title="Otimização \"${name}\""
+
+	msg_overturn_title="Ribalta \"${value}\""
+	msg_overturn_finish_title="Arquivo Ribaltamento \"${name}\""
+
+	msg_rembg_title="Remove background"
+	msg_rembg_model_imput_text="Please select a model :${new_line}(u2net by default)"
+	msg_rembg_finish_title="Removing background from \"${name}\""
+
+	msg_resize_title="Escalonamento de imagem \"${value}\""
+	msg_resize_scale_input_text="Digite o fator de escala em porcentagem ou o tamanho máximo desejado para cada direção.${new_line}Você pode escolher uma porcentagem ou um tamanho de pixel.${new_line}${new_line}Os valores válidos podem ser: 30% ou 300x300"
+	msg_resize_finish_title="Ridimensionamento di \"${name}\""
+
+	msg_rotate_title="Rotação de arquivos em \"${value}\" graus"
+	msg_rotate_angle_input_text="Digite o ângulo de rotação desejado:"
+	msg_rotate_finish_title="Rotação de arquivos \"${name}\""
+
+	msg_sepia_title="Efeito sépia"
+	msg_sepia_finish_title="Efeito sépia a \"${name}\""
+
+	msg_shadow_title="Adicionar sombra"
+	msg_shadow_finish_title="Adicionar sombra a \"${name}\""
+
+	msg_timestamp_title="Adicionar timestamp"
+	msg_timestamp_finish_title="Adicionar timestamp a \"${name}\""
+
+	msg_transparent2color_title="Mudança de transparência de cor"
+	msg_transparent2color_finish_title="Mudança de transparência de cor de \"${name}\""
+
+	msg_rfe_title="Renomear arquivos com a data Exif"
+	msg_rfe_no_metadata="É possível que a imagem não contenha metadados."
+	msg_rfe_finish_title="Renomear arquivo \"${name}\""
+
+	msg_rff_title="Rinomina file con la data del file"
+	msg_rff_finish_title="Rinomina file \"${name}\""
+
+	msg_sffe_title="Alterar a data do arquivo com a data Exif"
+	msg_sffe_no_metadata="É possível que a imagem não contenha metadados."
+	msg_sffe_finish_title="Mudança de data \"${name}\""
+
+	msg_sffn_title="Alterar a data do arquivo pelo nome"
+	msg_sffn_finish_title="Mudança de data \"${name}\""
+
+	msg_seff_title="Alteração de data exif da data do arquivo"
+	msg_seff_finish_title="Mudança de data \"${name}\""
+
+	msg_sefn_title="Alteração de dados Exif do nome do arquivo"
+	msg_sefn_finish_title="Mudança de data \"${name}\""
+
+	msg_ac_title="Adicione um comentário"
+	msg_ac_comment_input_text="Escreva o comentário para adicionar:"
+	msg_ac_finish_title="Adicione um comentário em \"${name}\""
+
+	msg_ve_title="Ver metadados"
+	msg_ve_finish_title="Ver metadados de \"${name}\""
+
+	msg_ee_title="Extrair metadados"
+	msg_ee_finish_title="Extrair metadados de \"${name}\""
+
+	msg_dc_title="Cancelar comentário"
+	msg_dc_finish_title="Cancelar comentário de \"${name}\""
+
+	msg_de_title="Metadados Exif Vazios"
+	msg_de_finish_title="Metadados exif vazios de \"${name}\""
+
+	msg_di_title="Esvazie os metadados do IPTC"
+	msg_di_finish_title="Limpar os metadados do IPTC de \"${name}\""
+
+	msg_dx_title="Esvazie os metadados XMP"
+	msg_dx_finish_title="Limpar os metadados XMP de \"${name}\""
+
+	msg_purejpg_title="Eliminar meditações desnecessárias"
+	msg_purejpg_finish_title="Eliminar medatatos desnecessários de \"${name}\""
+}
+
+
 load_language () {
 	## Load localized strings AFTER english strings
 	## - if localized strings not found use english for default
 	## - if localized strings are incomplete use english only fot missing strings :-)
-	load_language_en_US && [ "${lang}" != "en_US" ] && load_language_${lang}
+	load_language_fr_FR && [ "${lang}" != "en_US" ] && load_language_${lang}
 }
 
 lang=${LANGUAGE%%:*}
@@ -291,6 +562,8 @@ help () {
 	echo
 	echo "Actions on pictures:"
 	echo "agif		create animated gif (no value request)"
+	echo "apng		create animated png (no value request)"
+	echo "webp		create animated webp (no value request)"
 	echo "colorspace	change colorspace (currently only gray)"
 	echo "compress	change quality (value in percent 1 to 100)"
 	echo "convert		change format (value: all formats supported by ImageMagick"
@@ -325,6 +598,8 @@ help () {
 	echo
 	echo "${0##*/} convert png /home/user/file1.jpg /home/user/file2.jpg"
 	echo "${0##*/} agif /home/user/file1.jpg /home/user/file2.jpg"
+	echo "${0##*/} apng /home/user/file1.jpg /home/user/file2.jpg"
+	echo "${0##*/} webp /home/user/file1.jpg /home/user/file2.jpg"
 	echo "${0##*/} colorspace gray /home/user/file1.jpg /home/user/file2.jpg"
 	echo "${0##*/} sepia 80% /home/user/file1.jpg /home/user/file2.jpg"
 	echo "${0##*/} transparent2color /home/user/file1.png /home/user/file2.png"
@@ -347,6 +622,7 @@ AAI	AAI Dune image
 AI	Adobe Illustrator CS2
 ART	PFS: 1st Publisher Clip Art
 ARW	Sony Alpha Raw Image Format
+AVIF	AVIF image file
 AVS	AVS X image
 BGR	Raw blue, green, and red samples
 BGRA	Raw blue, green, red, and alpha samples
@@ -407,6 +683,7 @@ GV	Graphviz
 H	Image expressed as a 'C/C++' char array
 HALD	Identity Hald color lookup table image
 HDR	Radiance RGBE image format
+HEIF	HEIF image file
 HISTOGRAM	Histogram of the image
 HRZ	Slow Scan TeleVision
 HTM	Hypertext Markup Language and a client-side image map
@@ -431,6 +708,7 @@ JPEG	Joint Photographic Experts Group JFIF format (80)
 JPG	Joint Photographic Experts Group JFIF format (80)
 JPS	Joint Photographic Experts Group JFIF format (80)
 JSON	The image format and characteristics
+JXL	Joint Photographic Experts Group XL format (80)
 K25	Kodak Digital Camera Raw Image Format
 KDC	Kodak Digital Camera Raw Image Format
 LABEL	Image label
@@ -548,6 +826,7 @@ VIFF	Khoros Visualization image
 VIPS	VIPS image
 VST	Truevision Targa image
 WBMP	Wireless Bitmap (level 0) image
+WEBP	WEBP image
 WMF	Windows Meta File
 WMV	Windows Media Video
 WMZ	Compressed Windows Meta File
@@ -565,7 +844,7 @@ YCbCr	Raw Y, Cb, and Cr samples
 YCbCrA	Raw Y, Cb, Cr, and alpha samples
 YUV	CCIR 601 4:1:1 or 4:2:2
 "
-	"${kdialog_bin}" --icon configure --title "${!msg_title}" --msgbox "${formats}"
+	kdialog --icon configure --title "${!msg_title}" --msgbox "${formats}"
 }
 
 ######################################## Run compress and resize
@@ -583,10 +862,9 @@ run_compress () {
 run_optimize () {
 	## https://www.smashingmagazine.com/2015/06/efficient-image-resizing-with-imagemagick/
 	if [ "${overwrite}" = true ]; then
-		# msg=$("${magick_bin}" mogrify -filter Triangle -define filter:support=2 -unsharp 0.25x0.25+8+0.065 -dither None -posterize 136 -quality 82 -define jpeg:fancy-upsampling=off -define png:compression-filter=5 -define png:compression-level=9 -define png:compression-strategy=1 -define png:exclude-chunk=all -colorspace sRGB -strip -interlace Plane "${input}" 2>&1)
 		msg=$("${magick_bin}" "${input}" -filter Triangle -define filter:support=2 -unsharp 0.25x0.25+8+0.065 -dither None -posterize 136 -quality 82 -define jpeg:fancy-upsampling=off -define png:compression-filter=5 -define png:compression-level=9 -define png:compression-strategy=1 -define png:exclude-chunk=all -colorspace sRGB -strip -interlace Plane "${input}" 2>&1)
 	else
-		msg=$("${magick_bin}" "${input}" -filter Triangle -define filter:support=2 -unsharp 0.25x0.25+8+0.065 -dither None -posterize 136 -quality 82 -define jpeg:fancy-upsampling=off -define png:compression-filter=5 -define png:compression-level=9 -define png:compression-strategy=1 -define png:exclude-chunk=all -colorspace sRGB -strip -interlace Plane "${dir}/${base}_optimized.${ext}" 2>&1)
+		msg=$("${magick_bin}" "${input}" -filter Triangle -define filter:support=2 -unsharp 0.25x0.25+8+0.065 -dither None -posterize 136 -quality 82 -define jpeg:fancy-upsampling=off -define png:compression-filter=5 -define png:compression-level=9 -define png:compression-strategy=1 -define png:exclude-chunk=all -colorspace sRGB -strip -interlace Plane "${input}"  "${dir}/${base}_optimized.${ext}" 2>&1)
 	fi
 	return $?
 }
@@ -613,7 +891,17 @@ run_resize () {
 ######################################## Run convert and rotate
 
 run_agif () {
-	msg=$("${magick_bin}" -delay "${delay}" "${@}" -loop "${loop}" "${dir}/animated.gif" 2>&1)
+	msg=$("${magick_bin}" "${input}" -delay ${delay} "${@}" -loop ${loop} "${dir}/animated.gif" 2>&1)
+	return $?
+}
+
+run_webp () {
+	msg=$("${magick_bin}" "${input}" -delay ${delay} "${@}" -loop ${loop} "${dir}/animated.apng" 2>&1)
+	return $?
+}
+
+run_webp () {
+	msg=$("${magick_bin}" "${input}" -delay ${delay} "${@}" -loop ${loop} "${dir}/animated.webp" 2>&1)
 	return $?
 }
 
@@ -648,9 +936,9 @@ run_colorspace () {
 
 run_convert () {
 	if [ "${overwrite}" != true ] && [ "${ext}" = "${format}" ]; then
-		msg=$("${magick_bin}" "${input}" -format "${format}" "${dir}/${base}_converted.${format}" 2>&1)
+		msg=$("${magick_bin}" "${input}" -format "${format}" "${input}" 2>&1)
 	else
-		msg=$("${magick_bin}" "${input}" -format "${format}" "${base}.${format}" 2>&1)
+		msg=$("${magick_bin}" "${input}" -format "${format}" "${dir}/${base}_converted.${format}" 2>&1)
 	fi
 
 	return $?
@@ -690,14 +978,14 @@ run_favicons () {
 
 		for i in ${SIZES[@]}; do
 			mkdir -p "${dest_dir}"
-			echo "${NAME}-${i}x${i}.png"
-			"${magick_bin}" "${SOURCE_IMG}" -resize "${i}x${i}!" "${dest_dir}/${NAME}-${i}x${i}.png"
+			echo ${NAME}-${i}x${i}.png
+			"${magick_bin}" "${input}" -resize "${i}x${i}!" "${SOURCE_IMG}" "${dest_dir}/${NAME}-${i}x${i}.png"
 		done
 	done
 
-	"${magick_bin}" "${SOURCE_IMG}" -resize 16x16 "${dest_dir}/favicon.ico"
-	"${magick_bin}" "${SOURCE_IMG}" -resize 192x192 "${dest_dir}/apple-icon.png"
-	"${magick_bin}" "${SOURCE_IMG}" -resize 192x192 "${dest_dir}/apple-icon-precomposed.png"
+	"${magick_bin}" "${input}" -resize 16x16 "${SOURCE_IMG}" "${dest_dir}/favicon.ico"
+	"${magick_bin}" "${input}" -resize 192x192 "${SOURCE_IMG}" "${dest_dir}/apple-icon.png"
+	"${magick_bin}" "${input}" -resize 192x192 "${SOURCE_IMG}" "${dest_dir}/apple-icon-precomposed.png"
 
 	yes | rm "${SOURCE_IMG}"
 
@@ -762,8 +1050,8 @@ run_montage () {
 	code=$?
 	[ $code -gt 0 ] && return $code
 
-	height=$("${magick_bin}" "${input}" -format "%h" info: 2>&1)
-	msg=$("${magick_bin}" montage "${input}" -resize "x${height}" "${img_to_add}" -geometry +0+0 "${dir}/${base}_${img_to_add_base}.${ext}" 2>&1)
+	height=$("${magick_bin}" "${input}" montage "${input}" -format "%h" info: 2>&1)
+	msg=$("${montage_bin}" "${input}" -resize x${height} "${img_to_add}" -geometry +0+0 "${dir}/${base}_${img_to_add_base}.${ext}" 2>&1)
 	return $?
 }
 
@@ -777,18 +1065,28 @@ run_overturn () {
 	return $?
 }
 
+run_rembg () {
+	if [ "${model}" = "" ]; then
+		msg=$("${rembg_bin}" i "${input}" "${dir}/${base}_no_background.png" 2>&1)
+	else
+		msg=$("${rembg_bin}" i -m "${model}" "${input}" "${dir}/${base}_no_background.png" 2>&1)
+	fi
+
+	return $?
+}
+
 run_rotate () {
 	if [ "${overwrite}" = true ]; then
 		if [ "${angle}" = "auto" ]; then
 			msg=$("${magick_bin}" "${input}" -auto-orient "${input}" 2>&1)
 		else
-			msg=$("${magick_bin}" "${input}" -rotate "${angle}" "${input}" 2>&1)
+			msg=$("${magick_bin}" "${input}" -rotate ${angle} "${input}" 2>&1)
 		fi
 	else
 		if [ "${angle}" = "auto" ]; then
 			msg=$("${magick_bin}" "${input}" -auto-orient "${dir}/${base}_rotated.${ext}" 2>&1)
 		else
-			msg=$("${magick_bin}" "${input}" -rotate "${angle}" "${dir}/${base}_rotated.${ext}" 2>&1)
+			msg=$("${magick_bin}" "${input}" -rotate ${angle} "${dir}/${base}_rotated.${ext}" 2>&1)
 		fi
 	fi
 
@@ -819,7 +1117,7 @@ run_shadow () {
 }
 
 run_timestamp () {
-	timestamp=$("${jhead_bin}" -exifmap 01.jpg | grep "Date/Time" | sed "s/^[^:]*:[[:blank:]]*\([[:digit:]]\{4\}\):\([[:digit:]]\{2\}\):\([[:digit:]]\{2\}\)/\1-\2-\3/")
+	timestamp=$(jhead -exifmap 01.jpg | grep "Date/Time" | sed "s/^[^:]*:[[:blank:]]*\([[:digit:]]\{4\}\):\([[:digit:]]\{2\}\):\([[:digit:]]\{2\}\)/\1-\2-\3/")
 
 	if [ "${overwrite}" = true ]; then
 		msg=$("${magick_bin}" "${input}" -gravity SouthEast -pointsize 30 -fill white -annotate +30+30 "${timestamp}" "${input}" 2>&1)
@@ -968,16 +1266,13 @@ manage_input_separately () {
 	[ ${#} -lt 1 ] && help
 	[ ${#} -gt 1 ] && multiple_files=true
 
-    # update messages with presently available vars
-    load_language
-
 	type run_${action} > /dev/null || \
 		{ "${kdialog_bin}" --title "${msg_common_software_not_found_title}" --icon configure --error "${msg_common_action_not_found_text}" && exit 2; }
 
 	[ "${ask_overwrite}" = true ] && do_you_want_to_overwrite
 
 	quantity=$#
-	dbus_ref=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --progressbar "${msg_common_start}" $quantity)
+	dbus_ref=$(kdialog --icon configure --title "${!msg_title}" --progressbar "${msg_common_start}" $quantity)
 	qdbus $dbus_ref showCancelButton true
 	processed=0
 
@@ -997,7 +1292,7 @@ manage_input_separately () {
 		[ ! -f "${input}" ] && "${kdialog_bin}" --title --icon configure "${!msg_title}" --error "${msg_common_file_not_found}" && break
 		qdbus $dbus_ref setLabelText "${msg_common_progress_text}"
 
-		# msg_finish_title=msg_${action}_finish_title
+		msg_finish_title=msg_${action}_finish_title
 		run_${action} && \
 			"${kdialog_bin}" --title "${!msg_finish_title}" --passivepopup "${msg_common_finish_ok}" 5 || \
 			{ qdbus $dbus_ref close; "${kdialog_bin}" --icon configure --title "${!msg_finish_title}" --detailederror "${msg_common_finish_error}" "${msg}"; exit 2; }
@@ -1015,7 +1310,7 @@ manage_input_at_once () {
 	name="${1##*/}"
 	load_language
 
-	# msg_finish_title=msg_${action}_finish_title
+	msg_finish_title=msg_${action}_finish_title
 	run_${action} "${@}" && \
 		"${kdialog_bin}" --title "${!msg_finish_title}" --passivepopup "${msg_common_finish_ok}" 5 || \
 		{ qdbus $dbus_ref close; "${kdialog_bin}" --icon configure --title "${!msg_finish_title}" --detailederror "${msg_common_finish_error}" "${msg}"; exit 2; }
@@ -1026,11 +1321,9 @@ manage_input_at_once () {
 
 set_compress () {
 	value="${1}"
-	quality="75%"
 	shift
 
-	load_language
-
+	quality="75%"
 	if [ "${value}" = "custom" ]; then
 		quality=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --inputbox "${msg_compress_quality_input_text}" "${quality}") || \
 			{ "${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2; }
@@ -1055,8 +1348,6 @@ set_progressive () {
 set_resize () {
 	value="${1}"
 	shift
-
-	load_language
 
 	if [ "${value}" = "custom" ]; then
 		scale=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --inputbox "${msg_resize_scale_input_text}") || \
@@ -1084,6 +1375,52 @@ set_agif () {
 	"${kdialog_bin}" --icon configure --title "${!msg_title}" --yesnocancel "${msg_agif_loop_input_text}" && loop=0 || {
 		[ $? -eq 1 ] && {
 			loop=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --inputbox "${msg_agif_cicles_number_input_text}" $default_cicles_number) || {
+				"${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2;
+			}
+		} || {
+			"${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2;
+		}
+	}
+
+	manage_input_at_once "${@}"
+}
+
+set_apng () {
+	[ ${#} -lt 2 ] && help
+
+	default_delay=100
+	default_cicles_number=1
+
+	delay=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --inputbox "${msg_apng_delay_input_text}" $default_delay) || {
+		"${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2;
+	}
+
+	"${kdialog_bin}" --icon configure --title "${!msg_title}" --yesnocancel "${msg_apng_loop_input_text}" && loop=0 || {
+		[ $? -eq 1 ] && {
+			loop=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --inputbox "${msg_apng_cicles_number_input_text}" $default_cicles_number) || {
+				"${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2;
+			}
+		} || {
+			"${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2;
+		}
+	}
+
+	manage_input_at_once "${@}"
+}
+
+set_webp () {
+	[ ${#} -lt 2 ] && help
+
+	default_delay=100
+	default_cicles_number=1
+
+	delay=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --inputbox "${msg_webp_delay_input_text}" $default_delay) || {
+		"${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2;
+	}
+
+	"${kdialog_bin}" --icon configure --title "${!msg_title}" --yesnocancel "${msg_webp_loop_input_text}" && loop=0 || {
+		[ $? -eq 1 ] && {
+			loop=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --inputbox "${msg_webp_cicles_number_input_text}" $default_cicles_number) || {
 				"${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2;
 			}
 		} || {
@@ -1124,8 +1461,6 @@ set_colorspace () {
 set_convert () {
 	value="${1}"
 	shift
-
-	load_language
 
 	[ "${value}" = "formats" ] && { formats; exit 0; }
 
@@ -1174,11 +1509,19 @@ set_overturn () {
 	manage_input_separately "${@}"
 }
 
+set_rembg () {
+
+	model_list=$(ls $HOME/.u2net/ | sed -e 's/\..*$//')
+
+	model=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --combobox "${msg_rembg_model_imput_text}" ${model_list} ) || \
+		{ "${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2; }
+
+	manage_input_separately "${@}"
+}
+
 set_rotate () {
 	value="${1}"
 	shift
-
-	load_language
 
 	if [ "${value}" = "custom" ]; then
 		angle=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --inputbox "${msg_rotate_angle_input_text}") || \
@@ -1300,36 +1643,35 @@ set_purejpg () {
 kdialog_bin=$(which kdialog)
 [ -z "${kdialog_bin}" ] && echo "kdialog not found!" && exit 1
 
+magick_bin=$(which cjxl)
+[ -z "${magick_bin}" "${input}" ] && \
+	"${kdialog_bin}" --icon configure --title "${msg_common_software_not_found_title}" --error "${msg_common_cjxl_not_found_text}" && exit 2
+
+magick_bin=$(which djxl)
+[ -z "${magick_bin}" "${input}" ] && \
+	"${kdialog_bin}" --icon configure --title "${msg_common_software_not_found_title}" --error "${msg_common_cjxl_not_found_text}" && exit 2
+
 magick_bin=$(which magick)
-[ -z "${magick_bin}" ] && \
+[ -z "${magick_bin}" "${input}" ] && \
 	"${kdialog_bin}" --icon configure --title "${msg_common_software_not_found_title}" --error "${msg_common_magick_not_found_text}" && exit 2
-
-# mogrify_bin=$(which mogrify)
-# [ -z "${mogrify_bin}" ] && \
-# 	"${kdialog_bin}" --icon configure --title "${msg_common_software_not_found_title}" --error "${msg_common_mogrify_not_found_text}" && exit 2
-
-# convert_bin=$(which convert)
-# [ -z "${convert_bin}" ] && \
-# 	"${kdialog_bin}" --icon configure --title "${msg_common_software_not_found_title}" --error "${msg_common_convert_not_found_text}" && exit 2
-
-# montage_bin=$(which montage)
-# [ -z "${montage_bin}" ] && \
-# 	"${kdialog_bin}" --icon configure --title "${msg_common_software_not_found_title}" --error "${msg_common_montage_not_found_text}" && exit 2
 
 jhead_bin=$(which jhead)
 [ -z "${jhead_bin}" ] && \
-	"${kdialog_bin}" --icon configure --title "${msg_common_software_not_found_title}" --error "${msg_common_jhead_not_found_text}" && exit 2
+	"${kdialog_bin}" --title "${msg_common_software_not_found_title}" --icon configure --error "${msg_common_jhead_not_found_text}" && exit 2
 
 webp_bin=$(which webpinfo)
 [ -z "${webp_bin}" ] && \
-	"${kdialog_bin}" --icon configure --title "${msg_common_software_not_found_title}" --error "${msg_common_webp_not_found_text}" && exit 2
+	"${kdialog_bin}" --title "${msg_common_software_not_found_title}" --icon configure --error "${msg_common_webp_not_found_text}" && exit 2
+
+rembg_bin=$(which rembg)
+[ -z "${rembg_bin}" ] && \
+	"${kdialog_bin}" -icon configure --title "${msg_common_software_not_found_title}" --error "${msg_common_rembg_not_found_text}" && exit 2
 
 action="${1}"
 shift
 
 load_language
 msg_title=msg_${action}_title
-msg_finish_title=msg_${action}_finish_title
 
 type set_${action} &> /dev/null || \
 	{ "${kdialog_bin}" --icon configure --title "${msg_common_software_not_found_title}" --error "${msg_common_action_not_found_text}" && exit 3; }
