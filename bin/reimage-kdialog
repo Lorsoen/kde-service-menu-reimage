@@ -891,17 +891,12 @@ run_resize () {
 ######################################## Run convert and rotate
 
 run_agif () {
-	msg=$("${magick_bin}" "${input}" -delay ${delay} "${@}" -loop ${loop} "${dir}/animated.gif" 2>&1)
+	msg=$("${magick_bin}" -delay ${delay} -loop ${loop} "${@}" "${dir}/animated.gif" 2>&1)
 	return $?
 }
 
 run_webp () {
-	msg=$("${magick_bin}" "${input}" -delay ${delay} "${@}" -loop ${loop} "${dir}/animated.apng" 2>&1)
-	return $?
-}
-
-run_webp () {
-	msg=$("${magick_bin}" "${input}" -delay ${delay} "${@}" -loop ${loop} "${dir}/animated.webp" 2>&1)
+	msg=$("${magick_bin}" -delay ${delay} -loop ${loop} "${@}" "${dir}/animated.webp" 2>&1)
 	return $?
 }
 
@@ -1050,8 +1045,8 @@ run_montage () {
 	code=$?
 	[ $code -gt 0 ] && return $code
 
-	height=$("${magick_bin}" "${input}" montage "${input}" -format "%h" info: 2>&1)
-	msg=$("${montage_bin}" "${input}" -resize x${height} "${img_to_add}" -geometry +0+0 "${dir}/${base}_${img_to_add_base}.${ext}" 2>&1)
+	height=$("${magick_bin}" montage "${input}" -format "%h" info: 2>&1)
+	msg=$("${montage_bin}" "${input}" -resize x${height} "${img_to_add}" -geometry +0+0 "${dir}/${base}_mounted.${ext}" 2>&1)
 	return $?
 }
 
@@ -1385,29 +1380,6 @@ set_agif () {
 	manage_input_at_once "${@}"
 }
 
-set_apng () {
-	[ ${#} -lt 2 ] && help
-
-	default_delay=100
-	default_cicles_number=1
-
-	delay=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --inputbox "${msg_apng_delay_input_text}" $default_delay) || {
-		"${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2;
-	}
-
-	"${kdialog_bin}" --icon configure --title "${!msg_title}" --yesnocancel "${msg_apng_loop_input_text}" && loop=0 || {
-		[ $? -eq 1 ] && {
-			loop=$("${kdialog_bin}" --icon configure --title "${!msg_title}" --inputbox "${msg_apng_cicles_number_input_text}" $default_cicles_number) || {
-				"${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2;
-			}
-		} || {
-			"${kdialog_bin}" --title "${!msg_title}" --passivepopup "${msg_common_abort}" 5 && exit 2;
-		}
-	}
-
-	manage_input_at_once "${@}"
-}
-
 set_webp () {
 	[ ${#} -lt 2 ] && help
 
@@ -1643,25 +1615,21 @@ set_purejpg () {
 kdialog_bin=$(which kdialog)
 [ -z "${kdialog_bin}" ] && echo "kdialog not found!" && exit 1
 
-magick_bin=$(which cjxl)
-[ -z "${magick_bin}" "${input}" ] && \
-	"${kdialog_bin}" --icon configure --title "${msg_common_software_not_found_title}" --error "${msg_common_cjxl_not_found_text}" && exit 2
-
-magick_bin=$(which djxl)
-[ -z "${magick_bin}" "${input}" ] && \
-	"${kdialog_bin}" --icon configure --title "${msg_common_software_not_found_title}" --error "${msg_common_cjxl_not_found_text}" && exit 2
-
 magick_bin=$(which magick)
-[ -z "${magick_bin}" "${input}" ] && \
+[ -z "${magick_bin}" ] && \
 	"${kdialog_bin}" --icon configure --title "${msg_common_software_not_found_title}" --error "${msg_common_magick_not_found_text}" && exit 2
+
+montage_bin=$(which montage)
+[ -z "${montage_bin}" ] && \
+	"${kdialog_bin}" --icon configure --title "${msg_common_software_not_found_title}" --error "${msg_common_jhead_not_found_text}" && exit 2
 
 jhead_bin=$(which jhead)
 [ -z "${jhead_bin}" ] && \
-	"${kdialog_bin}" --title "${msg_common_software_not_found_title}" --icon configure --error "${msg_common_jhead_not_found_text}" && exit 2
+	"${kdialog_bin}" --icon configure --title "${msg_common_software_not_found_title}" --error "${msg_common_jhead_not_found_text}" && exit 2
 
 webp_bin=$(which webpinfo)
 [ -z "${webp_bin}" ] && \
-	"${kdialog_bin}" --title "${msg_common_software_not_found_title}" --icon configure --error "${msg_common_webp_not_found_text}" && exit 2
+	"${kdialog_bin}" --icon configure --title "${msg_common_software_not_found_title}" --error "${msg_common_webp_not_found_text}" && exit 2
 
 rembg_bin=$(which rembg)
 [ -z "${rembg_bin}" ] && \
